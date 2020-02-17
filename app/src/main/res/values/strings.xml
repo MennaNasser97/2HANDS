@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">2HANDS</string>
+    <string name="title_activity_signup">Create your account</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string-array name="categories">
+        <item>General</item>
+        <item>Medicine</item>
+        <item>Psychology</item>
+        <item>Financial</item>
+        <item>Social</item>
+        <item>Family</item>
+    </string-array>
+    <string-array name="postOptions">
+        <item>Disable react</item>
+        <item>Save post</item>
+        <item>Hide post</item>
+        <item>Mute</item>
+        <item>Block</item>
+        <item>Report</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
