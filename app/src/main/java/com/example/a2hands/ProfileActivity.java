@@ -37,7 +37,9 @@ import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 
-public class ProfileActivity extends AppCompatActivity  implements PostFragment.OnListFragmentInteractionListener , reviewFragment.OnListFragmentInteractionListener {
+public class ProfileActivity extends AppCompatActivity  implements
+        PostFragment.OnListFragmentInteractionListener,
+        reviewFragment.OnListFragmentInteractionListener {
 
     private static final int NUM_PAGES = 2;
     private ViewPager mPager;
@@ -183,6 +185,7 @@ public class ProfileActivity extends AppCompatActivity  implements PostFragment.
         public int getCount() {
             return NUM_PAGES;
         }
+
         @Override
         public CharSequence getPageTitle(int position) {
             if(position == 0)
