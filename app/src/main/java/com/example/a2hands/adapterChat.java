@@ -55,7 +55,6 @@ public class adapterChat extends RecyclerView.Adapter<adapterChat.MyHolder>{
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
         String message = chatList.get(position).getMessage();
         String timestamp = chatList.get(position).getTimestamp();
-
         holder.message.setText(message);
         holder.Time.setText(timestamp);
         try{
