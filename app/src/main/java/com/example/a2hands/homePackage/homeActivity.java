@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.a2hands.ChatActivity;
 import com.example.a2hands.CreatePost;
 import com.example.a2hands.LoginActivity;
 import com.example.a2hands.Post;
@@ -118,6 +119,8 @@ public class homeActivity extends AppCompatActivity implements
     }
 
 
+
+
     @Override
     public void onBackPressed() {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -143,6 +146,7 @@ public class homeActivity extends AppCompatActivity implements
         intent.putExtra("uid", FirebaseAuth.getInstance().getCurrentUser().getUid());
         startActivity(intent);
     }
+
 
 
 

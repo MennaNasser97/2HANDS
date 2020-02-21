@@ -17,6 +17,7 @@ import android.os.Bundle;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -48,8 +49,11 @@ public class ProfileActivity extends AppCompatActivity  implements
     ImageView profilePic;
     Button profileEditBtn;
     Button profileFollowBtn;
+    Button logoutBtn;
+    private ImageButton sendMessage;
     private StorageReference mStorageRef;
     private FirebaseFirestore db;
+    private FirebaseAuth firebaseAuth;
     public String uid;
     TextView profileName;
     TextView jobTitle;
@@ -66,15 +70,18 @@ public class ProfileActivity extends AppCompatActivity  implements
 
         //declare
         Toolbar toolbar = findViewById(R.id.profileToolbar);
-        Intent intent = getIntent();
+
+        final Intent intent = getIntent();
 
         //initiate
         mStorageRef = FirebaseStorage.getInstance().getReference();
+        firebaseAuth=FirebaseAuth.getInstance();
         uid = intent.getStringExtra("uid");
         mPager = findViewById(R.id.profilePostsContainer);
         pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         coverPhoto = findViewById(R.id.coverPhoto);
         profilePic = findViewById(R.id.profilePic);
+        sendMessage=findViewById(R.id.sendmessageButton);
         db = FirebaseFirestore.getInstance();
         profileBio = findViewById(R.id.profileBio);
         profileName = findViewById(R.id.profileName);
@@ -84,6 +91,24 @@ public class ProfileActivity extends AppCompatActivity  implements
         profileEditBtn = findViewById(R.id.profileEditBtn);
         profileFollowBtn = findViewById(R.id.profileFollowBtn);
         ratingBar = findViewById(R.id.ratingBar);
+        logoutBtn=findViewById(R.id.logoutbutton);
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseAuth.signOut();
+                startActivity(new Intent(ProfileActivity.this,LoginActivity.class));
+                finish();
+            }
+        });
+
+        sendMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, ChatActivity.class);
+                intent.putExtra("hisUid", uid);
+                startActivity(intent);
+            }
+        });
 
         // setup
         setSupportActionBar(toolbar);
